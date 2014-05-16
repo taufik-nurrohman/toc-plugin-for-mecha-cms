@@ -1,0 +1,29 @@
+Title: Table of Content
+Author: Taufik Nurrohman <http://latitudu.com>
+Version: 1.0.0
+
+====
+
+> Automatic table of content generator.
+
+### Introduction
+
+This plugin will automatically creates table of content on the page that has several headlines which you can use as quick jump links. If you omit the check sign in the &ldquo;Insert table of content?&rdquo; option, then the table of content will not be inserted at the top of the article content, and this plugin will only serve as an automatic permalink ID creator on each headline in your article.
+
+### Determine Your Own ID
+
+You always have the control to determine your own headline ID using the **Markdown Extra** syntax. This plugin will not overwrite the specific ID that you specify in the headline:
+
+~~~ .markdown
+### Headline Special 1 {#special-1}
+~~~
+
+### Exclude Headline from TOC
+
+Add a `not-toc-stage` class to the headline to exclude it from TOC list:
+
+~~~ .markdown
+### Example Header 3 {.not-toc-stage}
+~~~
+
+*[TOC]: Table of Content

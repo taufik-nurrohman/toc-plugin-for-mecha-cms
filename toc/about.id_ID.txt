@@ -1,0 +1,29 @@
+Title: Tabel Konten
+Author: Taufik Nurrohman <http://latitudu.com>
+Version: 1.0.0
+
+====
+
+> Generator tabel konten otomatis.
+
+### Perkenalan
+
+Plugin ini akan secara otomatis menyisipkan tabel konten pada halaman yang memiliki beberapa _headline_ yang kemudian bisa Anda gunakan sebagai tautan loncat cepat. Jika Anda menghilangkan tanda cek pada opsi &ldquo;Sisipkan tabel konten?&rdquo;, maka tabel konten tidak akan disisipkan di atas konten artikel, dan plugin ini hanya akan berfungsi sebagai pembuat ID tautan permanen pada setiap _headline_ di dalam artikel.
+
+### Menentukan ID Khusus
+
+Anda selalu memiliki kontrol untuk menentukan ID _headline_ spesifik menggunakan sintaks **Markdown Extra**. Plugin ini tidak akan menimpa ID spesifik yang Anda tentukan pada _headline_:
+
+~~~ .markdown
+### Headline Spesial 1 {#spesial-1}
+~~~
+
+### Mengecualikan Headline dari TOC
+
+Tambahkan kelas `not-toc-stage` pada _headline_ untuk mengecualikannya dari daftar:
+
+~~~ .markdown
+### Contoh Header 3 {.not-toc-stage}
+~~~
+
+*[TOC]: Table of Content

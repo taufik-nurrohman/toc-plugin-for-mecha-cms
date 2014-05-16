@@ -1,0 +1,47 @@
+.toc-block {
+  padding-top:1.3846153846153846em;
+  margin-top:-1.3846153846153846em;
+}
+* + .toc-block {margin-top:0}
+.toc-header {
+  font-size:100%;
+  margin:0 0 0 .2em;
+  font-weight:bold;
+}
+.toc-stage .toc-back,
+.toc-stage .toc-permalink {visibility:hidden}
+.toc-stage:target {
+  padding-top:18px;
+  margin-top:0;
+}
+.toc-stage:hover .toc-back,
+.toc-stage:target .toc-back,
+.toc-stage:hover .toc-permalink,
+.toc-stage:target .toc-permalink {visibility:visible}
+.toc-block ol {
+  list-style:none;
+  margin:.2em 0 0 1.2em; /* indent */
+  padding:0;
+  overflow:hidden;
+}
+.toc-block li {
+  margin:0;
+  padding:0 0 0 1.4em; /* indent + .2em */
+  position:relative;
+}
+.toc-block li .marker {visibility:hidden}
+.toc-block ol ol {margin-left:1.6em} /* indent + .4em */
+.toc-block li:before {
+  content:"";
+  display:block;
+  width:1em; /* indent - .2em */
+  height:999em;
+  border-bottom:1px solid;
+  border-left:1px solid;
+  position:absolute;
+  bottom:.7em;
+  left:0;
+  margin-bottom:-1px;
+}
+.toc-block li a:hover + .marker,
+.toc-block li:target .marker {visibility:visible}

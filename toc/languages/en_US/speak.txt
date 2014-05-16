@@ -1,0 +1,7 @@
+plugin_toc_title_title: TOC Title
+plugin_toc_title_back_title: TOC Back Title
+plugin_toc_title_prefix: ID Prefix
+plugin_toc_title_suffix: ID Suffix
+plugin_toc_title_add_toc: Insert table of content?
+plugin_toc_placeholder_prefix: prefix-
+plugin_toc_placeholder_suffix: -suffix
