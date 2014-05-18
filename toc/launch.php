@@ -34,7 +34,7 @@ Filter::add('content', function($content) use($states) {
             }
             if( ! preg_match('# ?class="(.*?) ?not-toc-stage ?(.*?)"#', $matches[2][$i])) {
                 if(preg_match('#id="(.*?)"#', $matches[2][$i], $id)) {
-                    $toc .= '<li id="back:' . ($i + 1) . '"><a href="#' . $id[1] . '">' . trim($matches[3][$i]) . '</a> <span class="marker">&#9666;</span></li>';
+                    $toc .= '<li id="back:' . $config->toc_id . '-' . ($i + 1) . '"><a href="#' . $id[1] . '">' . trim($matches[3][$i]) . '</a> <span class="marker">&#9666;</span></li>';
                 } else {
                     $toc .= '<li id="back:' . $config->toc_id . '-' . ($i + 1) . '"><a href="#' . $prefix . Text::parse($matches[3][$i])->to_slug . $suffix . '">' . trim($matches[3][$i]) . '</a> <span class="marker">&#9666;</span></li>';
                 }
