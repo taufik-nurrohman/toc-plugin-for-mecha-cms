@@ -57,7 +57,7 @@ Filter::add('content', function($content) use($states) {
             } else {
                 $anchor = '<a class="toc-permalink" href="#' . $prefix . Text::parse($matches[3])->to_slug . $suffix . '" title="' . $speak->permalink . '">&#182;</a>';
             }
-            return '<h' . $matches[1] . $attrs . '>' . trim($matches[3]) . ( ! preg_match('# ?class="(.*?) ?not-toc-stage ?(.*?)"#', $matches[2]) ? ' ' . $anchor : "") . '</h' . $matches[1] . '>';
+            return '<h' . $matches[1] . str_replace('  id="', ' id="', $attrs) . '>' . trim($matches[3]) . ( ! preg_match('# ?class="(.*?) ?not-toc-stage ?(.*?)"#', $matches[2]) ? ' ' . $anchor : "") . '</h' . $matches[1] . '>';
         }, $content);
 
         return ($states['add_toc'] ? $toc . '</ol></div>' : "") . $content;
