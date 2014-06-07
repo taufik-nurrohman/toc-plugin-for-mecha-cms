@@ -1,4 +1,4 @@
-<form class="form-plugin" action="<?php $states = unserialize(File::open(PLUGIN . '/toc/states/config.txt')->read()); echo $config->url_current; ?>/update" method="post">
+<form class="form-plugin" action="<?php $states = unserialize(File::open(PLUGIN . DS . 'toc' . DS . 'states' . DS . 'config.txt')->read()); echo $config->url_current; ?>/update" method="post">
   <input name="token" type="hidden" value="<?php echo Guardian::makeToken(); ?>">
   <label class="grid-group">
     <span class="grid span-2 form-label"><?php echo $speak->plugin_toc_title_title; ?></span>
