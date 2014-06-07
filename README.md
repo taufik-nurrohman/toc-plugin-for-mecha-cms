@@ -10,4 +10,4 @@ Screenshot
 
 ![TOC Screenshot](https://cloud.githubusercontent.com/assets/1669261/2995664/500d7962-dce1-11e3-834a-ebb131f1e050.png)
 
-Upload the `toc` folder along with its contents into the `plugins` folder. You may need to compress the folder into a ZIP file to simplify the uploading process. After that, go to the plugin manager page and follow the instructions on the **About** tab.
+Upload the `toc` folder along with its contents through the plugin uploader. You need to compress the folder into a ZIP file to simplify the uploading process. After that, go to the plugin manager page and follow the instructions on the **About** tab.
