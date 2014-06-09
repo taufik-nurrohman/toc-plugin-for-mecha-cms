@@ -13,7 +13,7 @@
 .toc-stage .toc-permalink {font-size:86%}
 .toc-stage:target {
   padding-top:18px;
-  margin-top:-6px;
+  margin-top:0;
 }
 .toc-stage:hover .toc-back,
 .toc-stage:target .toc-back,
