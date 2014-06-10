@@ -21,7 +21,7 @@
     <span class="grid span-4"><label><input name="add_toc" type="checkbox"<?php echo $states['add_toc'] ? ' checked' : ""; ?>> <span><?php echo $speak->plugin_toc_title_add_toc; ?></span></label></span>
   </div>
   <div class="grid-group">
-    <span class="grid span-2">&nbsp;</span>
+    <span class="grid span-2"></span>
     <span class="grid span-4"><button class="btn btn-primary btn-update" type="submit"><i class="fa fa-check-circle"></i> <?php echo $speak->update; ?></button></span>
   </div>
 </form>

@@ -10,6 +10,7 @@ if( ! $language = File::exist(PLUGIN . DS . 'toc' . DS . 'languages' . DS . $con
 
 // Merge the plugin language items to `Config::speak()`
 Config::merge('speak', Text::toArray(File::open($language)->read()));
+
 Config::set('toc_id', 1);
 
 function page_TOC($content) {
