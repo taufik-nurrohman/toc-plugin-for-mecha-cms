@@ -5,7 +5,7 @@
 * + .toc-block {margin-top:0}
 .toc-header {
   font-size:100%;
-  margin:0 0 0 .2em;
+  margin:0 0 .4em .2em;
   font-weight:bold;
 }
 .toc-stage .toc-back,
@@ -31,18 +31,28 @@
   position:relative;
 }
 .toc-block li .marker {visibility:hidden}
-.toc-block ol ol {margin-left:1.6em} /* indent + .4em */
+.toc-block ol ol {margin-left:.2em}
 .toc-block li:before {
   content:"";
   display:block;
-  width:1em; /* indent - .2em */
+  width:0;
   height:999em;
-  border-bottom:1px solid;
   border-left:1px solid;
   position:absolute;
   bottom:.7em;
   left:0;
   margin-bottom:-1px;
 }
+.toc-block li:after {
+  content:"";
+  display:block;
+  width:1em; /* indent - .2em */
+  border-top:1px solid;
+  position:absolute;
+  top:.7em;
+  bottom:0;
+  left:0;
+  background-color:white; /* same with page background color */
+}
 .toc-block li a:hover + .marker,
-.toc-block li:target .marker {visibility:visible}
+.toc-block li:target > .marker {visibility:visible}

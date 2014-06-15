@@ -26,22 +26,25 @@ function page_TOC($content) {
     if(preg_match_all($regex, $content, $matches)) {
         for($i = 0, $count = count($matches[0]); $i < $count; ++$i) {
             $level = (int) $matches[1][$i];
-            if($depth < $level) {
-                $toc .= '<ol>';
-                $depth = $level;
-                $repeat++;
-            }
-            if($depth > $level) {
-                $toc .= '</ol>';
-                $depth = $level;
-                $repeat--;
-            }
             if( ! preg_match('# ?class="(.*?) ?not-toc-stage ?(.*?)"#', $matches[2][$i])) {
-                if(preg_match('#id="(.*?)"#', $matches[2][$i], $id)) {
-                    $toc .= '<li id="back:' . $config->toc_id . '-' . ($i + 1) . '"><a href="#' . $id[1] . '">' . trim($matches[3][$i]) . '</a> <span class="marker">&#9666;</span></li>';
+                if($depth < $level) {
+                    $toc .= '<ol>';
+                    $depth = $level;
+                    $repeat++;
                 } else {
-                    $toc .= '<li id="back:' . $config->toc_id . '-' . ($i + 1) . '"><a href="#' . $prefix . Text::parse($matches[3][$i])->to_slug . $suffix . '">' . trim($matches[3][$i]) . '</a> <span class="marker">&#9666;</span></li>';
+                    $toc .= '</li>';
                 }
+                if($depth > $level) {
+                    $toc .= '</ol></li>';
+                    $depth = $level;
+                    $repeat--;
+                }
+                if(preg_match('#id="(.*?)"#', $matches[2][$i], $id)) {
+                    $toc .= '<li id="back:' . $config->toc_id . '-' . ($i + 1) . '"><a href="#' . $id[1] . '">' . trim($matches[3][$i]) . '</a>';
+                } else {
+                    $toc .= '<li id="back:' . $config->toc_id . '-' . ($i + 1) . '"><a href="#' . $prefix . Text::parse($matches[3][$i])->to_slug . $suffix . '">' . trim($matches[3][$i]) . '</a>';
+                }
+                $toc .= ' <span class="marker">&#9666;</span>';
             }
         }
         $counter = 0;
@@ -67,7 +70,7 @@ function page_TOC($content) {
             }
             return '<h' . $matches[1] . str_replace('  id="', ' id="', $attrs) . '>' . trim($matches[3]) . ( ! preg_match('# ?class="(.*?) ?not-toc-stage ?(.*?)"#', $matches[2]) ? ' ' . $anchor : "") . '</h' . $matches[1] . '>';
         }, $content);
-        return ($states['add_toc'] ? $toc . str_repeat('</ol>', $repeat) . '</div>' : "") . $content;
+        return ($states['add_toc'] ? $toc . str_repeat('</li></ol>', $repeat) . '</div>' : "") . $content;
     }
     Config::set('toc_id', $config->toc_id + 1);
     return $content;
