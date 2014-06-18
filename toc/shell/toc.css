@@ -24,26 +24,27 @@
   margin:.2em 0 0 1.2em; /* indent */
   padding:0;
   overflow:hidden;
+  position:relative;
 }
+.toc-block ol:before {
+  content:"";
+  display:block;
+  width:0;
+  height:auto;
+  border-left:1px solid;
+  position:absolute;
+  top:0;
+  bottom:.7em;
+  left:0;
+  margin-bottom:-1px;
+}
+.toc-block ol ol {margin-left:.2em}
 .toc-block li {
   margin:0;
   padding:0 0 0 1.4em; /* indent + .2em */
   position:relative;
 }
-.toc-block li .marker {visibility:hidden}
-.toc-block ol ol {margin-left:.2em}
 .toc-block li:before {
-  content:"";
-  display:block;
-  width:0;
-  height:999em;
-  border-left:1px solid;
-  position:absolute;
-  bottom:.7em;
-  left:0;
-  margin-bottom:-1px;
-}
-.toc-block li:after {
   content:"";
   display:block;
   width:1em; /* indent - .2em */
@@ -52,7 +53,8 @@
   top:.7em;
   bottom:0;
   left:0;
-  background-color:white; /* same with page background color */
 }
+.toc-block li:last-child:before {background-color:white} /* same with page background color */
+.toc-block li .marker {visibility:hidden}
 .toc-block li a:hover + .marker,
 .toc-block li:target > .marker {visibility:visible}
