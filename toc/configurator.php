@@ -22,6 +22,6 @@
   </div>
   <div class="grid-group">
     <span class="grid span-2"></span>
-    <span class="grid span-4"><button class="btn btn-primary btn-update" type="submit"><i class="fa fa-check-circle"></i> <?php echo $speak->update; ?></button></span>
+    <span class="grid span-4"><button class="btn btn-action" type="submit"><i class="fa fa-check-circle"></i> <?php echo $speak->update; ?></button></span>
   </div>
 </form>
