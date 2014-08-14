@@ -11,7 +11,7 @@ function page_TOC($content) {
     $speak = Config::speak();
     $prefix = $toc_config['id_prefix'];
     $suffix = $toc_config['id_suffix'];
-    $regex = '#<h([1-6])(.*?)>(.*?)<\/h\1>#';
+    $regex = '#<h([1-6]) *(.*?)>(.*?)<\/h\1>#';
     $repeat = 0;
     $depth = 0;
     $toc = "";

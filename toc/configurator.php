@@ -1,5 +1,5 @@
 <form class="form-plugin" action="<?php $toc_config = File::open(PLUGIN . DS . 'toc' . DS . 'states' . DS . 'config.txt')->unserialize(); echo $config->url_current; ?>/update" method="post">
-  <input name="token" type="hidden" value="<?php echo Guardian::token(); ?>">
+  <input name="token" type="hidden" value="<?php echo $token; ?>">
   <label class="grid-group">
     <span class="grid span-2 form-label"><?php echo $speak->plugin_toc_title_title; ?></span>
     <span class="grid span-4"><input name="toc_title" type="text" class="input-block" value="<?php echo Text::parse($toc_config['toc_title'])->to_encoded_html; ?>"></span>
