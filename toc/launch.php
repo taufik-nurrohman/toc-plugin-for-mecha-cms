@@ -90,7 +90,9 @@ Route::accept($config->manager->slug . '/plugin/toc/update', function() use($con
     }
     if($request = Request::post()) {
         Guardian::checkToken($request['token']);
+        File::write($request['css'])->saveTo(PLUGIN . DS . 'toc' . DS . 'shell' . DS . 'toc.css');
         unset($request['token']); // Remove token from request array
+        unset($request['css']); // Remove CSS from request array
         $request['add_toc'] = isset($request['add_toc']) ? true : false;
         File::serialize($request)->saveTo(PLUGIN . DS . 'toc' . DS . 'states' . DS . 'config.txt');
         Notify::success(Config::speak('notify_success_updated', array($speak->plugin)));

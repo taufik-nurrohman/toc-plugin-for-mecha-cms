@@ -3,5 +3,7 @@ plugin_toc_title_back_title: Judul TOC Kembali
 plugin_toc_title_prefix: Prefiks ID
 plugin_toc_title_suffix: Sufiks ID
 plugin_toc_title_add_toc: Sisipkan tabel konten?
+plugin_toc_title_css: <abbr title="Cascade Style Sheet">CSS</abbr>
+
 plugin_toc_placeholder_prefix: prefiks-
 plugin_toc_placeholder_suffix: -sufiks
