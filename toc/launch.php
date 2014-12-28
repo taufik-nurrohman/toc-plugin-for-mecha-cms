@@ -1,7 +1,7 @@
 <?php
 
 // Load the configuration data
-$toc_config = File::open(PLUGIN . DS . 'toc' . DS . 'states' . DS . 'config.txt')->unserialize();
+$toc_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize();
 
 Config::set('toc_id', 1);
 
@@ -75,7 +75,7 @@ Filter::add('page:content', 'page_TOC');
 
 // Add CSS for table of content
 Weapon::add('shell_after', function() {
-    echo Asset::stylesheet('cabinet/plugins/toc/shell/toc.css');
+    echo Asset::stylesheet('cabinet/plugins/' . basename(__DIR__) . '/shell/toc.css');
 });
 
 
@@ -84,17 +84,17 @@ Weapon::add('shell_after', function() {
  * --------------
  */
 
-Route::accept($config->manager->slug . '/plugin/toc/update', function() use($config, $speak) {
+Route::accept($config->manager->slug . '/plugin/' . basename(__DIR__) . '/update', function() use($config, $speak) {
     if( ! Guardian::happy()) {
         Shield::abort();
     }
     if($request = Request::post()) {
         Guardian::checkToken($request['token']);
-        File::write($request['css'])->saveTo(PLUGIN . DS . 'toc' . DS . 'shell' . DS . 'toc.css');
+        File::write($request['css'])->saveTo(PLUGIN . DS . basename(__DIR__) . DS . 'shell' . DS . 'toc.css');
         unset($request['token']); // Remove token from request array
         unset($request['css']); // Remove CSS from request array
         $request['add_toc'] = isset($request['add_toc']) ? true : false;
-        File::serialize($request)->saveTo(PLUGIN . DS . 'toc' . DS . 'states' . DS . 'config.txt');
+        File::serialize($request)->saveTo(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'config.txt');
         Notify::success(Config::speak('notify_success_updated', array($speak->plugin)));
         Guardian::kick(dirname($config->url_current));
     }
