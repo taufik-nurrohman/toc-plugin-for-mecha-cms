@@ -1,7 +1,7 @@
 Title: Tabel Konten
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.0.6
+Version: 1.0.7
 
 ====
 
@@ -9,7 +9,7 @@ Version: 1.0.6
 
 ### Perkenalan
 
-Plugin ini akan secara otomatis menyisipkan tabel konten pada halaman yang memiliki beberapa _headline_ yang kemudian bisa Anda gunakan sebagai tautan loncat cepat. Jika Anda menghilangkan tanda cek pada opsi &ldquo;Sisipkan tabel konten?&rdquo;, maka tabel konten tidak akan disisipkan di atas konten artikel, dan plugin ini hanya akan berfungsi sebagai pembuat ID tautan permanen pada setiap _headline_ di dalam artikel.
+Plugin ini akan secara otomatis menyisipkan tabel konten pada halaman yang memiliki beberapa _headline_ yang kemudian bisa Anda gunakan sebagai tautan loncat cepat. Jika Anda menghilangkan tanda cek pada opsi &ldquo;Sisipkan Tabel Konten&rdquo;, maka tabel konten tidak akan disisipkan di atas konten artikel, dan plugin ini hanya akan berfungsi sebagai pembuat ID tautan permanen pada setiap _headline_ di dalam artikel.
 
 ### Menentukan ID Khusus
 
