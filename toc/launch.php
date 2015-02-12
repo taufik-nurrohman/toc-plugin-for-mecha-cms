@@ -13,14 +13,15 @@ function do_TOC($content) {
     $suffix = $toc_config['id_suffix'];
     $prefix_b = $toc_config['id_back_prefix'];
     $suffix_b = $toc_config['id_back_suffix'];
-    $regex = '#<h([1-6]) *(.*?)>(.*?)<\/h\1>#';
+    $regex = '#<h([1-6])(>| +.*?>)(.*?)<\/h\1>#';
     $repeat = 0;
     $depth = 0;
     $toc = "";
     if(preg_match_all($regex, $content, $matches)) {
         for($i = 0, $count = count($matches[0]); $i < $count; ++$i) {
             $level = (int) $matches[1][$i];
-            if( ! preg_match('# +class="(.*?) *not-toc-stage *(.*?)"#', $matches[2][$i])) {
+            $matches[2][$i] = rtrim($matches[2][$i], '>');
+            if( ! preg_match('#(^| )class="(.*?) *not-toc-stage *(.*?)"#', $matches[2][$i])) {
                 if($depth < $level) {
                     $toc .= '<ol>';
                     $depth = $level;
@@ -45,6 +46,7 @@ function do_TOC($content) {
         $counter = 0;
         $content = preg_replace_callback($regex, function($matches) use($config, $speak, $toc_config, $prefix, $suffix, $prefix_b, $suffix_b, $repeat, &$counter) {
             $counter++;
+            $matches[2] = rtrim($matches[2], '>');
             if(strpos($matches[2], 'class="') !== false) {
                 $attrs = ' ' . trim(str_replace('class="', 'class="toc-stage ', $matches[2]));
             } else {
@@ -63,7 +65,7 @@ function do_TOC($content) {
                     $anchor = '<a class="toc-permalink" href="#' . $ma[2] . '" title="' . $speak->permalink . '">&#167;</a>';
                 }
             }
-            return '<h' . $matches[1] . $attrs . '>' . trim($matches[3]) . ( ! preg_match('# ?class="(.*?) *not-toc-stage *(.*?)"#', $matches[2]) ? ' ' . $anchor : "") . '</h' . $matches[1] . '>';
+            return '<h' . $matches[1] . $attrs . '>' . trim($matches[3]) . ( ! preg_match('#(^| )class="(.*?) *not-toc-stage *(.*?)"#', $matches[2]) ? ' ' . $anchor : "") . '</h' . $matches[1] . '>';
         }, $content);
         return ($toc_config['add_toc'] && ! empty($toc) ? '<div class="toc-block" id="toc-block:' . $config->toc_id . '">' . ( ! empty($toc_config['toc_title']) ? '<h3 class="toc-header">' . $toc_config['toc_title'] . '</h3>' : "") . $toc . str_repeat('</li></ol>', $repeat) . '</div>' : "") . $content;
     }
