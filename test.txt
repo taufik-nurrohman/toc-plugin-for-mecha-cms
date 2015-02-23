@@ -1,24 +1,28 @@
-# Heading 1
-# Custom ID {#foo}
-## Custom ID 2 {#foo-2}
-## Custom ID 2 {#foo-22.not-toc-stage}
-### Test Class {.foo}
-### Another Foo {.not-toc-stage}
-### Another Foo 2
-## Another ABC {.foo.not-toc-stage.bar}
-### Test H6
-## Another DEF {.foo.not-toc-stage}
-## Another GHI {.not-toc-stage.bar}
-# Heading 1 Again
+# #1 Heading
+# #1 Custom ID {#foo}
+## #2 Custom ID 2 {#foo-2}
+## #2 Custom ID 2 {#foo-22.not-toc-stage}
+### #3 Test Class {.foo}
+### #3 Another Foo {.not-toc-stage}
+### #3 Another Foo 2
+## #2 Another ABC {.foo.not-toc-stage.bar}
+### #3 Test
+## #2 Another DEF {.foo.not-toc-stage}
+## #2 Another GHI {.not-toc-stage.bar}
+# #1 Heading Again
+##### #5 Heading <!-- broken here -->
+## #2 Heading
 
-<h2 data-foo="bar">Tes HTML 1</h2>
+<h2 data-foo="bar">#2 Tes HTML 1</h2>
 
-<h2 id="yea-yea">Tes HTML 2</h2>
+<h2 id="yea-yea">#2 Tes HTML 2</h2>
 
-<h3 class="bar">Tes HTML 3</h3>
+<h3 class="bar">#3 Tes HTML 3</h3>
 
-<h3 class="not-toc-stage">Tes HTML 4</h3>
+<h3 class="not-toc-stage">#3 Tes HTML 4</h3>
 
-<h2 class="foo not-toc-stage bar">Tes HTML 5</h2>
+<h2 class="foo not-toc-stage bar">#2 Tes HTML 5</h2>
 
-<h1 class="not-toc-stage bar">Tes HTML 6</h1>
+<h1 class="not-toc-stage bar">#1 Tes HTML 6</h1>
+
+<style>.not-toc-stage {opacity:.5}</style>

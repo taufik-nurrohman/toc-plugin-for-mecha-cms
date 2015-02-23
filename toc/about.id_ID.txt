@@ -1,7 +1,7 @@
 Title: Tabel Konten
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.0.8
+Version: 1.0.9
 
 ====
 
