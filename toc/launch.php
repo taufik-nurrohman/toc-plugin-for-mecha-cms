@@ -60,13 +60,13 @@ function do_TOC($content) {
                     $attrs .= ' id="' . $prefix . Text::parse($matches[3])->to_slug . $suffix . '"';
                 }
                 if($toc_config['add_toc']) {
-                    $anchor = '<a class="toc-back" href="#' . $prefix_b . $config->toc_id . '-' . $counter . $suffix_b . '"' . ( ! empty($toc_config['toc_back_title']) ? ' title="' . $toc_config['toc_back_title'] . '"' : "") . '>&#9652;</a>';
+                    $anchor = ' <a class="toc-back" href="#' . $prefix_b . $config->toc_id . '-' . $counter . $suffix_b . '"' . ( ! empty($toc_config['toc_back_title']) ? ' title="' . $toc_config['toc_back_title'] . '"' : "") . '>&#9652;</a>';
                 } else {
                     if(strpos($matches[2], 'id="') === false) {
-                        $anchor = '<a class="toc-permalink" href="#' . $prefix . Text::parse($matches[3])->to_slug . $suffix . '" title="' . $speak->permalink . '">&#167;</a>';
+                        $anchor = ' <a class="toc-permalink" href="#' . $prefix . Text::parse($matches[3])->to_slug . $suffix . '" title="' . $speak->permalink . '">&#167;</a>';
                     } else {
                         preg_match('#(?:^| )id="(.*?)"#i', $matches[2], $id);
-                        $anchor = '<a class="toc-permalink" href="#' . $id[1] . '" title="' . $speak->permalink . '">&#167;</a>';
+                        $anchor = ' <a class="toc-permalink" href="#' . $id[1] . '" title="' . $speak->permalink . '">&#167;</a>';
                     }
                 }
                 return '<h' . $matches[1] . str_replace('  id="', ' id="', $attrs) . '>' . trim($matches[3]) . $anchor . '</h' . $matches[1] . '>';

@@ -1,7 +1,7 @@
 Title: Table of Content
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.0.9
+Version: 1.0.10
 
 ====
 
