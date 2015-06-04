@@ -7,6 +7,8 @@ plugin_toc_title_back_suffix: Back ID Suffix
 plugin_toc_title_add_toc: Insert Table of Content
 plugin_toc_title_css: <abbr title="Cascading Style Sheet">CSS</abbr>
 
+plugin_toc_title_toc_disable: Disable <abbr title="Table of Content">TOC</abbr>
+
 plugin_toc_placeholder_prefix: prefix-
 plugin_toc_placeholder_suffix: -suffix
 plugin_toc_placeholder_back_prefix: prefix-

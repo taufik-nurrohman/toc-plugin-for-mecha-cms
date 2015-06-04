@@ -1,7 +1,7 @@
 Title: Table of Content
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.0.10
+Version: 1.1.0
 
 ====
 
@@ -9,7 +9,7 @@ Version: 1.0.10
 
 ### Introduction
 
-This plugin will automatically creates table of content on the page that has several headlines which you can use as quick jump links. If you omit the check sign in the &ldquo;Insert Table of Content&rdquo; option, then the table of content will not be inserted at the top of the article content, and this plugin will only serve as an automatic permalink ID creator on each headline in your article.
+This plugin will automatically create table of content on the page that has several headlines which you can use as a quick jump links. If you omit the check sign in the _Insert Table of Content_ option, then the table of content will not be inserted at the top of the article content, and this plugin will only serve as an automatic permalink ID creator on each headline in your article.
 
 ### Determine Your Own ID
 
