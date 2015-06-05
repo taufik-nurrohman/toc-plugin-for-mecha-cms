@@ -22,7 +22,6 @@ function do_TOC($content) {
     $toc = "";
     if(preg_match_all($regex, $content, $matches)) {
         if($toc_config['add_toc']) {
-            $test_arr = array();
             for($i = 0, $count = count($matches[0]); $i < $count; ++$i) {
                 $level = (int) $matches[1][$i];
                 $matches[2][$i] = rtrim($matches[2][$i], '>');
