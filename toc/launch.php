@@ -1,13 +1,13 @@
 <?php
 
 // Load the configuration data
-$toc_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize();
+$toc_config = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize();
 
 Config::set('toc_id', 1);
 
 function do_TOC($content) {
     // No headlines
-    if(strpos($content, '</h') === false) {
+    if( ! Text::check($content)->has('</h')) {
         return $content;
     }
     global $toc_config;
@@ -25,12 +25,7 @@ function do_TOC($content) {
             for($i = 0, $count = count($matches[0]); $i < $count; ++$i) {
                 $level = (int) $matches[1][$i];
                 $matches[2][$i] = rtrim($matches[2][$i], '>');
-                if(
-                    strpos($matches[2][$i], '"not-toc-stage"') === false &&
-                    strpos($matches[2][$i], '"not-toc-stage ') === false &&
-                    strpos($matches[2][$i], ' not-toc-stage"') === false &&
-                    strpos($matches[2][$i], ' not-toc-stage ') === false
-                ) {
+                if( ! Text::check('"not-toc-stage"', '"not-toc-stage ', ' not-toc-stage"', ' not-toc-stage ')->in($matches[2][$i])) {
                     if($depth < $level) {
                         $toc .= str_repeat('<ol>', $i > 0 ? $level - $depth : 1);
                         $repeat++;
@@ -54,26 +49,21 @@ function do_TOC($content) {
             }
         }
         $content = preg_replace_callback($regex, function($matches) use($config, $speak, $toc_config, $prefix, $suffix, $prefix_b, $suffix_b, &$counter) {
-            if(
-                strpos($matches[2], '"not-toc-stage"') === false &&
-                strpos($matches[2], '"not-toc-stage ') === false &&
-                strpos($matches[2], ' not-toc-stage"') === false &&
-                strpos($matches[2], ' not-toc-stage ') === false
-            ) {
+            if( ! Text::check('"not-toc-stage"', '"not-toc-stage ', ' not-toc-stage"', ' not-toc-stage ')->in($matches[2])) {
                 $counter++;
                 $matches[2] = rtrim($matches[2], '>');
-                if(strpos(' ' . $matches[2], ' class="') !== false) {
+                if(Text::check(' ' . $matches[2])->has(' class="')) {
                     $attrs = ' ' . trim(str_replace('class="', 'class="toc-stage ', $matches[2]));
                 } else {
                     $attrs = ' class="toc-stage" ' . trim($matches[2]);
                 }
-                if(strpos(' ' . $matches[2], ' id="') === false) {
+                if( ! Text::check(' ' . $matches[2])->has(' id="')) {
                     $attrs .= ' id="' . $prefix . Text::parse($matches[3], '->slug') . $suffix . '"';
                 }
                 if($toc_config['add_toc']) {
                     $anchor = ' <a class="toc-back" href="#' . $prefix_b . $config->toc_id . '-' . $counter . $suffix_b . '"' . ( ! empty($toc_config['toc_back_title']) ? ' title="' . $toc_config['toc_back_title'] . '"' : "") . '>&#9652;</a>';
                 } else {
-                    if(strpos(' ' . $matches[2], ' id="') === false) {
+                    if( ! Text::check(' ' . $matches[2])->has(' id="')) {
                         $anchor = ' <a class="toc-permalink" href="#' . $prefix . Text::parse($matches[3], '->slug') . $suffix . '" title="' . $speak->permalink . '">&#167;</a>';
                     } else {
                         preg_match('#(?:^|\s)id="(.*?)"#i', $matches[2], $id);
@@ -105,6 +95,6 @@ if($config->page_type === 'article' || $config->page_type === 'page') {
     });
     // Include the table of content's CSS
     Weapon::add('shell_after', function() {
-        echo Asset::stylesheet('cabinet/plugins/' . basename(__DIR__) . '/shell/toc.css');
+        echo Asset::stylesheet('cabinet/plugins/' . File::B(__DIR__) . '/assets/shell/toc.css');
     });
 }

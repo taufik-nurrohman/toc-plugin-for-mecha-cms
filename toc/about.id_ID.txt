@@ -1,7 +1,7 @@
 Title: Tabel Konten
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.1.0
+Version: 1.2.0
 
 ====
 
@@ -26,5 +26,7 @@ Tambahkan kelas `not-toc-stage` pada _headline_ untuk mengecualikannya dari daft
 ~~~ .markdown
 ### Contoh Header 3 {.not-toc-stage}
 ~~~
+
+<!-- block:donate -->
 
 *[TOC]: Table of Content

@@ -1,4 +1,4 @@
-<form class="form-plugin" action="<?php $toc_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize(); $toc_css = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'shell' . DS . 'toc.css')->read(); echo $config->url_current; ?>/update" method="post">
+<form class="form-plugin" action="<?php $toc_config = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize(); $toc_css = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'assets' . DS . 'shell' . DS . 'toc.css')->read(); echo $config->url_current; ?>/update" method="post">
   <?php echo Form::hidden('token', $token); ?>
   <label class="grid-group">
     <span class="grid span-2 form-label"><?php echo $speak->plugin_toc_title_title; ?></span>
@@ -45,6 +45,7 @@
     <?php echo Form::textarea('css', Guardian::wayback('css', $toc_css), null, array(
         'class' => array(
             'textarea-block',
+            'textarea-expand',
             'code'
         )
     )); ?>

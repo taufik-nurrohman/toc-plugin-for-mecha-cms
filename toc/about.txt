@@ -1,7 +1,7 @@
 Title: Table of Content
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.1.0
+Version: 1.2.0
 
 ====
 
@@ -26,5 +26,7 @@ Add a `not-toc-stage` class to the headline to exclude it from TOC list:
 ~~~ .markdown
 ### Example Header 3 {.not-toc-stage}
 ~~~
+
+<!-- block:donate -->
 
 *[TOC]: Table of Content
