@@ -18,7 +18,7 @@ function do_TOC($content) {
     $prefix_b = $toc_config['id_back_prefix'];
     $suffix_b = $toc_config['id_back_suffix'];
     $regex = '#<h([1-6])(>|\s+.*?>)(.*?)<\/h\1>#si';
-    $couter = $repeat = $depth = 0;
+    $counter = $repeat = $depth = 0;
     $toc = "";
     if(preg_match_all($regex, $content, $matches)) {
         if($toc_config['add_toc']) {
