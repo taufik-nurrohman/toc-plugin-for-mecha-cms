@@ -64,10 +64,10 @@ function do_TOC($content) {
                     $anchor = ' <a class="toc-back" href="#' . $prefix_b . $config->toc_id . '-' . $counter . $suffix_b . '"' . ( ! empty($toc_config['toc_back_title']) ? ' title="' . $toc_config['toc_back_title'] . '"' : "") . '>&#9652;</a>';
                 } else {
                     if( ! Text::check(' ' . $matches[2])->has(' id="')) {
-                        $anchor = ' <a class="toc-permalink" href="#' . $prefix . Text::parse($matches[3], '->slug') . $suffix . '" title="' . $speak->permalink . '">&#167;</a>';
+                        $anchor = ' <a class="toc-point" href="#' . $prefix . Text::parse($matches[3], '->slug') . $suffix . '" title="' . $speak->permalink . '">&#167;</a>';
                     } else {
                         preg_match('#(?:^|\s)id="(.*?)"#i', $matches[2], $id);
-                        $anchor = ' <a class="toc-permalink" href="#' . $id[1] . '" title="' . $speak->permalink . '">&#167;</a>';
+                        $anchor = ' <a class="toc-point" href="#' . $id[1] . '" title="' . $speak->permalink . '">&#167;</a>';
                     }
                 }
                 return '<h' . $matches[1] . str_replace('  id="', ' id="', $attrs) . '>' . trim($matches[3]) . $anchor . '</h' . $matches[1] . '>';
