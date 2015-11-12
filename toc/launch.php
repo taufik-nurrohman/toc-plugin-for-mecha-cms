@@ -38,7 +38,7 @@ function do_TOC($content) {
                         $repeat = $depth - $level;
                         $depth = $level;
                     }
-                    $title = preg_replace('#<a(>|\s.*?>)|<\/a>#', "", $matches[3][$i]);
+                    $title = Text::parse($matches[3][$i], '->text', '<abbr><b><code><del><dfn><em><i><ins><kbd><mark><strong><sub><sup><time><u>');
                     if(preg_match('#(?:^|\s)id="(.*?)"#', $matches[2][$i], $id)) {
                         $toc .= '<li id="' . $prefix_b . $config->toc_id . '-' . ($i + 1) . $suffix_b . '"><a href="#' . $id[1] . '">' . trim($title) . '</a>';
                     } else {

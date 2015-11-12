@@ -1,7 +1,7 @@
 Title: Tabel Konten
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.2.1
+Version: 1.2.2
 
 ====
 
@@ -11,7 +11,7 @@ Version: 1.2.1
 
 Plugin ini akan secara otomatis menyisipkan tabel konten pada halaman yang memiliki beberapa _headline_ yang kemudian bisa Anda gunakan sebagai tautan loncat cepat. Jika Anda menghilangkan tanda cek pada opsi _Sisipkan Tabel Konten_, maka tabel konten tidak akan disisipkan di atas konten artikel, dan plugin ini hanya akan berfungsi sebagai pembuat ID tautan permanen pada setiap _headline_ di dalam artikel.
 
-### Menentukan ID Khusus
+#### Menentukan ID Khusus
 
 Anda selalu memiliki kontrol untuk menentukan ID _headline_ spesifik menggunakan sintaks **Markdown Extra**. Plugin ini tidak akan menimpa ID spesifik yang Anda tentukan pada _headline_:
 
@@ -19,7 +19,7 @@ Anda selalu memiliki kontrol untuk menentukan ID _headline_ spesifik menggunakan
 ### Headline Spesial 1 {#spesial-1}
 ~~~
 
-### Mengecualikan Headline dari TOC
+#### Mengecualikan Headline dari TOC
 
 Tambahkan kelas `not-toc-stage` pada _headline_ untuk mengecualikannya dari daftar:
 
