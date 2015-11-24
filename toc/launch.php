@@ -1,7 +1,7 @@
 <?php
 
 // Load the configuration data
-$toc_config = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize();
+$toc_config = File::open(__DIR__ . DS . 'states' . DS . 'config.txt')->unserialize();
 
 Config::set('toc_id', 1);
 
