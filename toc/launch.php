@@ -80,13 +80,16 @@ function do_TOC($content) {
     return $content;
 }
 
-// Stop `do_TOC` from parsing our page headlines in `index` page type
-// The TOC markup should be visible only in `article` and `page` page type
+// Stop `do_TOC` from parsing our page headlines in index page
+// The TOC markup should be visible only in single page mode
 // Keep the manual article and page excerpt(s) clean!
-if($config->page_type === 'article' || $config->page_type === 'page') {
+if(Mecha::walk(glob(POST . DS . '*', GLOB_NOSORT | GLOB_ONLYDIR))->has(POST . DS . $config->page_type)) {
     // Register the `do_TOC` filter ...
     Filter::add('shield:lot', function($data) use($config) {
         if( ! isset($data[$config->page_type]->fields->disable_toc)) {
+            return $data;
+        }
+        if( ! $data[$config->page_type]->fields->disable_toc) {
             if(isset($data[$config->page_type]->content)) {
                 $data[$config->page_type]->content = do_TOC($data[$config->page_type]->content);
             }
@@ -95,6 +98,6 @@ if($config->page_type === 'article' || $config->page_type === 'page') {
     });
     // Include the table of content's CSS
     Weapon::add('shell_after', function() {
-        echo Asset::stylesheet('cabinet/plugins/' . File::B(__DIR__) . '/assets/shell/toc.css');
+        echo Asset::stylesheet(__DIR__ . DS . 'assets' . DS . 'shell' . DS . 'toc.css');
     });
 }
