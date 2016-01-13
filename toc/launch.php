@@ -5,8 +5,13 @@ $toc_config = File::open(__DIR__ . DS . 'states' . DS . 'config.txt')->unseriali
 
 Config::set('toc_id', 1);
 
-function do_TOC($content) {
-    // No headlines
+function do_toc($content, $results = array()) {
+    // Disabled
+    $results = Mecha::O($results);
+    if(isset($results->fields->disable_toc) && $results->fields->disable_toc !== false) {
+        return $content;
+    }
+    // No headline(s)
     if( ! Text::check($content)->has('</h')) {
         return $content;
     }
@@ -80,23 +85,10 @@ function do_TOC($content) {
     return $content;
 }
 
-// Stop `do_TOC` from parsing our page headlines in index page
-// The TOC markup should be visible only in single page mode
-// Keep the manual article and page excerpt(s) clean!
-if(Mecha::walk(glob(POST . DS . '*', GLOB_NOSORT | GLOB_ONLYDIR))->has(POST . DS . $config->page_type)) {
-    // Register the `do_TOC` filter ...
-    Filter::add('shield:lot', function($data) use($config) {
-        if( ! isset($data[$config->page_type]->fields->disable_toc)) {
-            return $data;
-        }
-        if( ! $data[$config->page_type]->fields->disable_toc) {
-            if(isset($data[$config->page_type]->content)) {
-                $data[$config->page_type]->content = do_TOC($data[$config->page_type]->content);
-            }
-        }
-        return $data;
-    });
-    // Include the table of content's CSS
+if($config->is->post) {
+    // Apply `do_toc` filter
+    Filter::add($config->page_type . ':content', 'do_toc', 10);
+    // Apply skin to page
     Weapon::add('shell_after', function() {
         echo Asset::stylesheet(__DIR__ . DS . 'assets' . DS . 'shell' . DS . 'toc.css');
     });
