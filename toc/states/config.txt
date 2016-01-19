@@ -1,1 +1,1 @@
-a:7:{s:9:"toc_title";s:16:"Table of Content";s:14:"toc_back_title";s:11:"Back to Top";s:9:"id_prefix";s:8:"section:";s:9:"id_suffix";s:0:"";s:14:"id_back_prefix";s:5:"back:";s:14:"id_back_suffix";s:0:"";s:7:"add_toc";b:1;}
+a:7:{s:9:"toc_title";s:16:"Table of Content";s:14:"toc_back_title";s:11:"Back to Top";s:9:"id_prefix";s:10:"reference:";s:9:"id_suffix";s:0:"";s:14:"id_back_prefix";s:5:"back:";s:14:"id_back_suffix";s:0:"";s:7:"add_toc";b:1;}

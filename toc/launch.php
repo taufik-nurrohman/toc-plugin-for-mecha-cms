@@ -25,6 +25,9 @@ function do_toc($content, $results = array()) {
     $regex = '#<h([1-6])(>|\s+.*?>)(.*?)<\/h\1>#si';
     $counter = $repeat = $depth = 0;
     $toc = "";
+    if(strpos($content, '{{toc}}') === false) {
+        $content = '{{toc}}' . "\n\n" . $content;
+    }
     if(preg_match_all($regex, $content, $matches)) {
         if($toc_config['add_toc']) {
             for($i = 0, $count = count($matches[0]); $i < $count; ++$i) {
@@ -79,7 +82,8 @@ function do_toc($content, $results = array()) {
             }
             return $matches[0];
         }, $content);
-        return ($toc_config['add_toc'] && $toc !== "" ? '<div class="toc-block" id="toc-block:' . $config->toc_id . '">' . ($toc_config['toc_title'] !== "" ? '<h3 class="toc-header">' . $toc_config['toc_title'] . '</h3>' : "") . '<div class="toc-content">' . $toc . str_repeat('</li></ol>', $repeat) . '</div></div>' : "") . $content;
+        $toc = $toc_config['add_toc'] && $toc !== "" ? '<div class="toc-block" id="toc-block:' . $config->toc_id . '">' . ($toc_config['toc_title'] !== "" ? '<h3 class="toc-header">' . $toc_config['toc_title'] . '</h3>' : "") . '<div class="toc-content">' . $toc . str_repeat('</li></ol>', $repeat) . '</div></div>' : "";
+        return preg_replace('#(?<!`)\{\{toc\}\}(?!`)#', $toc, $content);
     }
     Config::set('toc_id', $config->toc_id + 1);
     return $content;

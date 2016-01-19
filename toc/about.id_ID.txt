@@ -1,7 +1,7 @@
 Title: Tabel Konten
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.2.2
+Version: 1.2.3
 
 ====
 
@@ -26,6 +26,10 @@ Tambahkan kelas `not-toc-stage` pada _headline_ untuk mengecualikannya dari daft
 ~~~ .markdown
 ### Contoh Header 3 {.not-toc-stage}
 ~~~
+
+#### Penempatan TOC Kustom
+
+Tambahkan sebuah kode pintasan ``{{toc}}`` di mana saja di dalam konten halaman untuk menandai lokasi yang Anda kehendaki untuk meletakkan pohon TOC yang dihasilkan.
 
 <!-- block:donate -->
 
