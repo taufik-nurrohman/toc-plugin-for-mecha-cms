@@ -6,6 +6,7 @@
     <?php echo Form::text('toc_title', Guardian::wayback('toc_title', $toc_config['toc_title']), null, array(
         'class' => 'input-block'
     )); ?>
+    </span>
   </label>
   <label class="grid-group">
     <span class="grid span-2 form-label"><?php echo $speak->plugin_toc_title_back_title; ?></span>
