@@ -8,9 +8,13 @@
   padding:0;
 }
 
-.toc-stage .toc-back,
-.toc-stage .toc-point,
-.toc-block .marker {visibility:hidden}
+.toc-mark,
+.toc-back,
+.toc-point {visibility:hidden}
+
+.toc-mark:before {content:"\25c2"}
+.toc-back:before {content:"\25b4"}
+.toc-point:before {content:"\00a7"}
 
 .toc-stage:target:before {
   content:"";
@@ -60,9 +64,9 @@
   background-color:white; /* same with page background color */
 }
 
-.toc-block li:target > .marker,
-.toc-block li a:hover + .marker,
+.toc-block li:target > .toc-mark,
+.toc-block li a:hover + .toc-mark,
 .toc-stage:hover .toc-back,
-.toc-stage:hover .toc-point,
 .toc-stage:target .toc-back,
+.toc-stage:hover .toc-point,
 .toc-stage:target .toc-point {visibility:visible}

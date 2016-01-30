@@ -1,15 +1,8 @@
-plugin_toc_title_title: Judul <abbr title="Table of Content">TOC</abbr>
-plugin_toc_title_back_title: Judul <abbr title="Table of Content">TOC</abbr> Kembali
-plugin_toc_title_prefix: Prefiks ID Judul
-plugin_toc_title_suffix: Sufiks ID Judul
-plugin_toc_title_back_prefix: Prefix ID Kembali
-plugin_toc_title_back_suffix: Sufiks ID Kembali
-plugin_toc_title_add_toc: Sisipkan Tabel Konten
-plugin_toc_title_css: <abbr title="Cascading Style Sheet">CSS</abbr>
-
-plugin_toc_title_toc_disable: Nonaktifkan <abbr title="Table of Content">TOC</abbr>
-
-plugin_toc_placeholder_prefix: prefiks-
-plugin_toc_placeholder_suffix: -sufiks
-plugin_toc_placeholder_back_prefix: prefiks-
-plugin_toc_placeholder_back_suffix: -sufiks
+plugin_toc:
+  title: Judul
+  title_back: Judul Kembali
+  id: ID Judul
+  id_back: ID Kembali
+  css: <abbr title="Cascading Style Sheet">CSS</abbr>
+  add_toc: Sisipkan Tabel Konten
+  disable_toc: Nonaktifkan <abbr title="Table of Content">TOC</abbr>
